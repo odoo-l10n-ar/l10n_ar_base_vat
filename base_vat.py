@@ -18,8 +18,7 @@
 #
 ##############################################################################
 
-from osv import osv
-from osv import fields
+from osv import fields, osv
 
 
 class res_partner(osv.osv):
