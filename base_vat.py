@@ -19,10 +19,25 @@
 ##############################################################################
 
 from osv import fields, osv
+import re
 
+_re_ar_vat = re.compile('ar(\d\d)(\d*)(\d)')
 
 class res_partner(osv.osv):
     _inherit = 'res.partner'
+
+    def _get_printed_vat(self, cr, uid, ids, prop, unknown_non, unknow_dict):
+        res = {}
+        for partner in self.browse(cr, uid, ids):
+            cuit_parse = _re_ar_vat.match(partner.vat) if partner.vat else None
+            cuit_string = '{0}-{1}-{2}'.format(*cuit_parse.groups()) if cuit_parse is not None else partner.vat
+            res[partner.id] = cuit_string
+        return res
+
+    _columns = {
+        'printed_vat': fields.function(_get_printed_vat, method=True, string='Printeable VAT', type="string",
+                                       store=False),
+    }
 
     # Added
     def check_vat_ar(self, vat):
