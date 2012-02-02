@@ -20,7 +20,7 @@
 
 {
     'name': 'VAT Localization Argentina',
-    'version': '0.2',
+    'version': '2.0',
     'author': 'Thymbra - Torre de Hanoi',
     'category': 'Localisation/Base',
     'website': 'http://www.thymbra.com/',
