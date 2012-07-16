@@ -1,9 +1,5 @@
-Módulo de localización Argentina
+Función de validación del CUIT según la AFIP.
 
-Autores:
-    Luis Falcon <lfalcon@thymbra.com>
-    Bruno M. Villasanti <bvillasanti@thymbra.com>
+Incluye:
+ - Función de validación del CUIT según la AFIP.
 
-Licencia: GPL-3
-
-(C) 2005 - present
