@@ -28,6 +28,9 @@ class res_partner(osv.osv):
     _inherit = 'res.partner'
 
     def _get_printed_vat(self, cr, uid, ids, prop, unknown_non, unknow_dict):
+        """
+        Retorna el CUIT formateado en forma oficial (XX-XXXXXXXX-X).
+        """
         res = {}
         for partner in self.browse(cr, uid, ids):
             cuit_parse = _re_ar_vat.match(partner.vat) if partner.vat else None
@@ -40,11 +43,10 @@ class res_partner(osv.osv):
                                        store=False),
     }
 
-    # Added
     def check_vat_ar(self, vat):
-        '''
-        Check VAT (CUIT) for Argentina - Thymbra
-        '''
+        """
+        Check VAT (CUIT) for Argentina
+        """
         cstr = str(vat)
         salt = str(5432765432)
         n = 0
