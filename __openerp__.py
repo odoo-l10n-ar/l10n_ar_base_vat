@@ -35,6 +35,9 @@ Incluye:
         'base_vat',
     ],
     'update_xml': [],
+    'test': [
+        'test/l10n_ar_base_vat.yml'
+    ],
     'active': False,
     'installable': True,
 }
