@@ -24,7 +24,7 @@
     'author':   'OpenERP - Team de Localización Argentina',
     'category': 'Localization/Argentina',
     'website':  'https://launchpad.net/~openerp-l10n-ar-localization',
-    'license': 'GPL-3',
+    'license': 'AGPL-3',
     'description': """
 Función de validación del CUIT según la AFIP.
 
