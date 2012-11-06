@@ -33,15 +33,18 @@ class res_partner(osv.osv):
         """
         res = {}
         for partner in self.browse(cr, uid, ids):
-            cuit_parse = _re_ar_vat.match(partner.vat) if partner.vat else None
-            cuit_string = '{0}-{1}-{2}'.format(*cuit_parse.groups()) if cuit_parse is not None else partner.vat
-            res[partner.id] = cuit_string
+            res[partner.id] = self.format_vat_ar(partner.vat)
         return res
 
     _columns = {
         'printed_vat': fields.function(_get_printed_vat, method=True, string='Printeable VAT', type="string",
                                        store=False),
     }
+
+    def format_vat_ar(self, vat):
+        cuit_parse = _re_ar_vat.match(vat) if vat else None
+        cuit_string = '{0}-{1}-{2}'.format(*cuit_parse.groups()) if cuit_parse is not None else vat
+        return cuit_string
 
     def check_vat_ar(self, vat):
         """
