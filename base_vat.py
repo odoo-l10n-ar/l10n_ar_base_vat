@@ -46,6 +46,18 @@ class res_partner(osv.osv):
         cuit_string = '{0}-{1}-{2}'.format(*cuit_parse.groups()) if cuit_parse is not None else vat
         return cuit_string
 
+#    # La opción que estoy viendo es:
+#    def check_vat_dni(self, vat):
+#        pass
+#
+    # La opción que estoy viendo es:
+    #def check_vat_ci(self, vat):
+    #    pass
+#
+#    # La opción que estoy viendo es:
+#    def check_vat_pass(self, vat):
+#        pass
+
     def check_vat_ar(self, vat):
         """
         Check VAT (CUIT) for Argentina
