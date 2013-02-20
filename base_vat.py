@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from osv import fields, osv
+from openerp.osv import fields, osv
 import re
 
 _re_ar_vat = re.compile('ar(\d\d)(\d*)(\d)')
