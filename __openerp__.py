@@ -18,27 +18,16 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    'name': 'VAT Localization Argentina',
-    'version': '2.7.155',
-    'author':   'OpenERP - Team de Localización Argentina',
+{   'active': False,
+    'author': 'OpenERP - Team de Localizaci\xc3\xb3n Argentina',
     'category': 'Localization/Argentina',
-    'website':  'https://launchpad.net/~openerp-l10n-ar-localization',
-    'license': 'AGPL-3',
-    'description': """
-Función de validación del CUIT según la AFIP.
-
-Incluye:
- - Función de validación del CUIT según la AFIP.
-""",
-    'depends': [
-        'base_vat',
-    ],
-    'update_xml': [],
-    'test': [
-        'test/l10n_ar_base_vat.yml'
-    ],
-    'active': False,
+    'depends': ['base_vat'],
+    'description': '\n\nFunci\xc3\xb3n de validaci\xc3\xb3n del CUIT seg\xc3\xban la AFIP.\n\n\n\nIncluye:\n\n - Funci\xc3\xb3n de validaci\xc3\xb3n del CUIT seg\xc3\xban la AFIP.\n\n',
     'installable': True,
-}
+    'license': 'AGPL-3',
+    'name': 'VAT Localization Argentina',
+    'test': ['test/l10n_ar_base_vat.yml'],
+    'update_xml': [],
+    'version': '2.7.246',
+    'website': 'https://launchpad.net/~openerp-l10n-ar-localization'}
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
