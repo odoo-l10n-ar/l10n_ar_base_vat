@@ -37,7 +37,7 @@ class res_partner(osv.osv):
         return res
 
     _columns = {
-        'printed_vat': fields.function(_get_printed_vat, method=True, string='Printeable VAT', type="string",
+        'printed_vat': fields.function(_get_printed_vat, method=True, string='Printeable VAT', type="char",
                                        store=False),
     }
 
