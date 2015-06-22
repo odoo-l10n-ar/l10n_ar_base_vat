@@ -1,28 +1,10 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-# Copyright (C) 2012 OpenERP - Team de Localización Argentina.
-# https://launchpad.net/~openerp-l10n-ar-localization
-#
-# This program is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
 
 from openerp.osv import fields, osv
 import re
 
 _re_ar_vat = re.compile('ar(\d\d)(\d*)(\d)')
+
 
 class res_partner(osv.osv):
     _inherit = 'res.partner'
@@ -37,26 +19,16 @@ class res_partner(osv.osv):
         return res
 
     _columns = {
-        'printed_vat': fields.function(_get_printed_vat, method=True, string='Printeable VAT', type="char",
-                                       store=False),
+        'printed_vat': fields.function(
+            _get_printed_vat, method=True, string='Printeable VAT', type="char",
+            store=False),
     }
 
     def format_vat_ar(self, vat):
         cuit_parse = _re_ar_vat.match(vat) if vat else None
-        cuit_string = '{0}-{1}-{2}'.format(*cuit_parse.groups()) if cuit_parse is not None else vat
+        cuit_string = '{0}-{1}-{2}'.format(*cuit_parse.groups()) \
+            if cuit_parse is not None else vat
         return cuit_string
-
-#    # La opción que estoy viendo es:
-#    def check_vat_dni(self, vat):
-#        pass
-#
-    # La opción que estoy viendo es:
-    #def check_vat_ci(self, vat):
-    #    pass
-#
-#    # La opción que estoy viendo es:
-#    def check_vat_pass(self, vat):
-#        pass
 
     def check_vat_ar(self, vat):
         """
